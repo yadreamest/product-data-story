@@ -122,11 +122,11 @@ def _render(doc, out):
             def line(x1,y1,x2,y2,color=grid,lw=1):ops.append(('line',x1,y1,x2,y2,color,lw))
             text(56,40,page.get('eyebrow','АНАЛИТИЧЕСКАЯ ЗАПИСКА').upper(),13,'Medium',muted)
             text(944,40,page['period'],13,'Regular',muted,ha='right')
-            y=80+text(56,80,page['title'],34,'SemiBold',maxwidth=888,leading=40)+32
+            y=80+text(56,80,page['title'],34,'SemiBold',maxwidth=888,leading=38)+32
             for j,ch in enumerate(page['charts']):
                 if j:
                     line(56,y,944,y);y+=28
-                y+=text(56,y,ch['title'],22,'SemiBold',maxwidth=888,leading=28)+8
+                y+=text(56,y,ch['title'],22,'SemiBold',maxwidth=888,leading=26)+10
                 y+=text(56,y,'База: '+ch['base'],14,color=muted,maxwidth=888,leading=20)+16
                 kind=ch['type'];vals=ch['values'];labels=ch['labels']
                 highlights=ch.get('highlight',[0])

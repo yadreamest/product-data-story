@@ -17,8 +17,8 @@ All dimensions below are logical pixels on a 1000 px wide artboard. Higher-resol
 | `canvasWidth` | 1000 | Fixed editorial export width |
 | `pagePadding` | 56 | Left and right; content width 888 |
 | `fontFamily` | Inter | All text; load actual font, do not silently substitute |
-| `title` | 34 / 40 px, weight 600 | Page title |
-| `section` | 22 / 28 px | Evidence-block heading |
+| `title` | 34 / 38 px, weight 600 | Page title |
+| `section` | 22 / 26 px | Evidence-block heading |
 | `base`, `note` | 14 / 20 px | Population, scope, source and caveats |
 | `label` | 16 / 22 px | Category labels, left aligned |
 | `value` | 17 / 22 px | Chart value labels |
@@ -82,3 +82,9 @@ V2 PNG: three demo/source-example pages reviewed by design lead on 2026-09-23, s
 - [Datawrapper: missing observations](https://www.datawrapper.de/academy/patchy-data): visible gaps or clearly identified assumed paths.
 
 References read 2026-09-22. These references guide design decisions; no external template code/assets were copied.
+
+## Heading rhythm — v4.0.1
+
+Use explicit line advance, not a renderer-specific line-spacing multiplier: font metrics can make the actual step much larger. Main headings use 34 px type / 38 px advance; section headings 22 / 26 with 10 px reserved after the final line box before the description. Measure the visible bounds after rendering; descriptions must not appear attached to the final title line.
+
+For square 1080 px post cards, use Inter SemiBold 50 px / 54 px line advance. Keep subtitle spacing separate from line-height. The verified two-line layout starts at y=138; description starts at y=283. For other line counts derive the description position from measured title bounds and preserve the same visual separation. Do not reuse a fixed subtitle coordinate if the title grows. Verify both full-size and phone-size PNGs.
